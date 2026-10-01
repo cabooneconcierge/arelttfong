@@ -29,9 +29,9 @@ export default function Site() {
     <>
       <header className="wrap nav">
         <a className="brand" href="#inicio">
-          <span className="mark">A</span>
+          <span className="mark">AF</span>
           <span>
-            <strong>{site.shortName}</strong>
+            <strong>Arlett Fong</strong>
             <span>{lang === "es" ? "Cirugía general" : "General surgery"}</span>
           </span>
         </a>
