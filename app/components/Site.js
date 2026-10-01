@@ -28,13 +28,14 @@ export default function Site() {
 
   return (
     <>
+      <div id="inicio" />
       <header className="wrap nav">
-        <a className="brand" href="#inicio">
+        <a className="brand" href="#inicio" onClick={(event) => { event.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}>
           <img src="/logo-arlett.svg" alt="Arlett Fong, MD. General Surgeon. Los Cabos." />
         </a>
         <nav className={open ? "nav-links open" : "nav-links"}>
           {t.nav.map(([label, href]) => (
-            <a key={href} href={href} onClick={() => setOpen(false)}>{label}</a>
+            <a key={href} href={href} onClick={(event) => { setOpen(false); if (href === "#inicio") { event.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); } }}>{label}</a>
           ))}
         </nav>
         <div style={{ display: "flex", gap: 8 }}>
@@ -43,7 +44,7 @@ export default function Site() {
         </div>
       </header>
 
-      <main id="inicio" className="wrap">
+      <main className="wrap">
         <section className="hero">
           <div>
             <div className="eyebrow">{t.kicker}</div>
@@ -142,9 +143,7 @@ export default function Site() {
             <p>{t.erNote}</p>
           </div>
           <article className="card er-card">
-            <ul>
-              {t.erItems.map((item) => <li key={item}>{item}</li>)}
-            </ul>
+            <ul>{t.erItems.map((item) => <li key={item}>{item}</li>)}</ul>
             <p className="notice">{t.urgent}</p>
           </article>
         </section>
@@ -167,9 +166,7 @@ export default function Site() {
                 </article>
               ))}
             </div>
-            <ul>
-              {t.visitPoints.map((point) => <li key={point}>{point}</li>)}
-            </ul>
+            <ul>{t.visitPoints.map((point) => <li key={point}>{point}</li>)}</ul>
           </div>
           <form onSubmit={onSubmit}>
             <h2>{t.formTitle}</h2>
