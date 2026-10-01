@@ -4,7 +4,7 @@ export const metadata = {
   metadataBase: new URL("https://arelttfong.com"),
   title: "Dra. Arlett Fong Hirales | Cirugía general y laparoscópica en Los Cabos",
   description:
-    "Consulta de cirugía general, laparoscopía y mini laparoscopía en Hospital H+ Los Cabos, San José del Cabo, Baja California Sur.",
+    "Consulta de cirugía general, laparoscopía y mini laparoscopía en Los Cabos, Baja California Sur.",
   openGraph: {
     title: "Dra. Arlett Fong Hirales",
     description: "Cirugía general y laparoscópica en Los Cabos.",
@@ -37,10 +37,7 @@ export default function RootLayout({ children }) {
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Montserrat:wght@400;500;600&display=swap"
-          rel="stylesheet"
-        />
+        <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       </head>
       <body>{children}</body>

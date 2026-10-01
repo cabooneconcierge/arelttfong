@@ -19,7 +19,7 @@ export default function Aviso() {
       </p>
       <p>
         El formulario abre WhatsApp en el dispositivo de quien lo envía. El mensaje queda en esa conversación.
-        Para acceder, rectificar o cancelar datos, escribe a citas@arelttfong.com.
+        Para acceder, rectificar o cancelar datos, escribe a arlettfong@gmail.com.
       </p>
       <p>
         Este sitio no atiende urgencias. Ante dolor abdominal intenso, fiebre o un bulto incarcerado, acude a urgencias.
