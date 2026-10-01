@@ -11,10 +11,9 @@ npm run dev
 
 ## Publicar en Vercel
 
-1. Entra a [vercel.com/new](https://vercel.com/new) con la cuenta de GitHub `cabooneconcierge`.
-2. Importa el repositorio `arelttfong`.
-3. Framework: Next.js. No hace falta cambiar el comando de build.
-4. En el proyecto, Settings → Domains, agrega `arelttfong.com` y `www.arelttfong.com`.
+1. Entra a [vercel.com/new](https://vercel.com/new) e importa el repositorio `arelttfong`.
+2. Framework: Next.js. No hace falta cambiar el comando de build.
+3. En el proyecto, Settings → Domains, agrega `arelttfong.com` y `www.arelttfong.com`.
 
 ## DNS en GoDaddy
 
