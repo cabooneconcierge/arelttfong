@@ -1,26 +1,17 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { copy, site } from "../data";
-
-const fonts = [
-  { id: "cormorant", label: "Cormorant", sample: '"Cormorant Garamond", serif' },
-  { id: "montserrat", label: "Montserrat", sample: "Montserrat, sans-serif" },
-  { id: "fraunces", label: "Fraunces", sample: "Fraunces, serif" }
-];
 
 export default function Site() {
   const [lang, setLang] = useState("es");
   const [open, setOpen] = useState(false);
-  const [font, setFont] = useState("cormorant");
   const [form, setForm] = useState({ name: "", phone: "", siteId: "healthy", reason: "" });
   const t = copy[lang];
   const office = site.locations.find((item) => item.id === form.siteId) || site.locations[1];
-
-  useEffect(() => {
-    document.documentElement.dataset.font = font;
-  }, [font]);
+  const featured = [0, 1, 3, 2].map((index) => t.procedures[index]);
+  const more = t.procedures.filter((_, index) => ![0, 1, 2, 3].includes(index));
 
   function onSubmit(event) {
     event.preventDefault();
@@ -32,34 +23,14 @@ export default function Site() {
       (lang === "es" ? "Sede" : "Office") + ": " + place,
       (lang === "es" ? "Motivo" : "Reason") + ": " + form.reason
     ].join("\n");
-    const number = office.whatsapp || "526241199241";
-    window.open("https://wa.me/" + number + "?text=" + encodeURIComponent(message), "_blank", "noopener,noreferrer");
+    window.open("https://wa.me/" + site.whatsapp + "?text=" + encodeURIComponent(message), "_blank", "noopener,noreferrer");
   }
 
   return (
     <>
-      <div className="topbar">
-        <div className="wrap fontpick">
-          <span>Tipograf\u00eda</span>
-          {fonts.map((item) => (
-            <button
-              key={item.id}
-              type="button"
-              className={font === item.id ? "on" : ""}
-              style={{ "--sample": item.sample }}
-              onClick={() => setFont(item.id)}
-            >
-              {item.label}
-            </button>
-          ))}
-        </div>
-        <header className="wrap nav">
+      <header className="wrap nav">
         <a className="brand" href="#inicio">
-          <span className="mark">AF</span>
-          <span>
-            <strong>Arlett Fong</strong>
-            <span>{lang === "es" ? "Cirug\u00eda general" : "General surgery"}</span>
-          </span>
+          <img src="/logo-arlett.svg" alt="Arlett Fong, MD. General Surgeon. Los Cabos." />
         </a>
         <nav className={open ? "nav-links open" : "nav-links"}>
           {t.nav.map(([label, href]) => (
@@ -71,7 +42,6 @@ export default function Site() {
           <button className="lang" onClick={() => setLang(lang === "es" ? "en" : "es")}>{t.langLabel}</button>
         </div>
       </header>
-      </div>
 
       <main id="inicio" className="wrap">
         <section className="hero">
@@ -81,7 +51,7 @@ export default function Site() {
             <p className="lead">{t.heroLead}</p>
             <div className="actions">
               <a className="btn" href="#consulta">{t.ctaPrimary}</a>
-              <a className="btn ghost" href="#procedimientos">{t.ctaSecondary}</a>
+              <a className="btn ghost" href="#servicios">{t.ctaSecondary}</a>
             </div>
             <div className="facts">
               {t.facts.map(([label, value]) => (
@@ -92,8 +62,22 @@ export default function Site() {
           <aside className="portrait">
             <span>Dra.</span>
             <p>Arlett Fong Hirales</p>
-            <span>{lang === "es" ? "Directora m\u00e9dica de H+ Los Cabos durante cuatro a\u00f1os. Consulta en H+ y Healthy Cabo." : "Medical director of H+ Los Cabos for four years. Offices at H+ and Healthy Cabo."}</span>
+            <span>{lang === "es" ? "Cirug\u00eda general y laparosc\u00f3pica en Los Cabos. Consulta en H+ y en Healthy Cabo." : "General and laparoscopic surgery in Los Cabos. Offices at H+ and Healthy Cabo."}</span>
           </aside>
+        </section>
+
+        <section id="doctora" className="split">
+          <div>
+            <div className="eyebrow">{t.pathEyebrow}</div>
+            <h2>{t.pathTitle}</h2>
+            <p>{t.pathBody}</p>
+            <p>{t.pathBody2}</p>
+          </div>
+          <div className="creds">
+            {t.credentials.map(([label, value]) => (
+              <div key={label}><small>{label}</small><strong>{value}</strong></div>
+            ))}
+          </div>
         </section>
 
         <section id="enfoque">
@@ -109,31 +93,60 @@ export default function Site() {
           </div>
         </section>
 
-        <section id="procedimientos">
+        <section id="servicios">
           <div className="section-head">
             <div className="eyebrow">{t.procEyebrow}</div>
             <h2>{t.procTitle}</h2>
+          </div>
+          <div className="featured">
+            {featured.map(([title, items]) => (
+              <article key={title}>
+                <b>{title}</b>
+                <ul>{items.map((item) => <li key={item}>{item}</li>)}</ul>
+              </article>
+            ))}
+          </div>
+          <div className="section-head" style={{ marginTop: 36 }}>
+            <div className="eyebrow">{t.moreEyebrow}</div>
             <p className="note">{t.procNote}</p>
           </div>
-          <div className="grid-3">
-            {t.procedures.map(([title, body]) => (
-              <article className="card" key={title}><b>{title}</b><span>{body}</span></article>
+          <div className="grid-2">
+            {more.map(([title, items]) => (
+              <article className="card" key={title}>
+                <b>{title}</b>
+                <ul>{items.map((item) => <li key={item}>{item}</li>)}</ul>
+              </article>
             ))}
           </div>
         </section>
 
-        <section id="trayectoria" className="split">
+        <section id="internacional" className="intl">
           <div>
-            <div className="eyebrow">{t.pathEyebrow}</div>
-            <h2>{t.pathTitle}</h2>
-            <p>{t.pathBody}</p>
-            <p>{t.pathBody2}</p>
+            <div className="eyebrow">{t.intlEyebrow}</div>
+            <h2>{t.intlTitle}</h2>
+            <p>{t.intlLead}</p>
+            <p className="note">{t.intlNote}</p>
           </div>
-          <div className="creds">
-            {t.credentials.map(([label, value]) => (
-              <div key={label}><small>{label}</small><strong>{value}</strong></div>
+          <div className="steps">
+            {t.intlSteps.map(([title, body]) => (
+              <div key={title}><b>{title}</b><span>{body}</span></div>
             ))}
           </div>
+        </section>
+
+        <section id="urgencia">
+          <div className="section-head">
+            <div className="eyebrow">{t.erEyebrow}</div>
+            <h2>{t.erTitle}</h2>
+            <p>{t.erLead}</p>
+            <p>{t.erNote}</p>
+          </div>
+          <article className="card er-card">
+            <ul>
+              {t.erItems.map((item) => <li key={item}>{item}</li>)}
+            </ul>
+            <p className="notice">{t.urgent}</p>
+          </article>
         </section>
 
         <section id="consulta" className="visit">
@@ -171,6 +184,7 @@ export default function Site() {
             </label>
             <label>{t.reason}<textarea required rows={4} value={form.reason} onChange={(e) => setForm({ ...form, reason: e.target.value })} /></label>
             <button className="btn" type="submit">{t.send}</button>
+            <p className="note"><a href={"mailto:" + site.email}>{site.email}</a></p>
             <p className="notice">{t.urgent}</p>
           </form>
         </section>
