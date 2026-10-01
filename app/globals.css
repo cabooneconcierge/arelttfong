@@ -11,8 +11,13 @@
   --white: #fbf9f6;
   --lead: #4a433c;
   --notice: #e3d9ce;
+  --font: "Cormorant Garamond", serif;
   --shadow: 0 24px 60px rgba(58, 51, 45, 0.1);
 }
+
+[data-font="cormorant"] { --font: "Cormorant Garamond", serif; }
+[data-font="montserrat"] { --font: Montserrat, sans-serif; }
+[data-font="fraunces"] { --font: Fraunces, serif; }
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -22,7 +27,7 @@ body {
   background:
     radial-gradient(900px 420px at 100% -10%, var(--glow), transparent 60%),
     linear-gradient(180deg, var(--paper) 0%, var(--paper) 42%, var(--wash) 100%);
-  font-family: Montserrat, sans-serif;
+  font-family: var(--font);
   font-weight: 400;
   line-height: 1.55;
 }
@@ -38,17 +43,51 @@ button, input, textarea, select { font: inherit; }
   font-weight: 600;
 }
 
-.nav {
+.fontpick {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding: 10px 0 0;
+}
+.fontpick span {
+  font-family: Montserrat, sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-right: 4px;
+}
+.fontpick button {
+  font-family: var(--sample, var(--font));
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink);
+  border-radius: 999px;
+  padding: 6px 14px;
+  cursor: pointer;
+}
+.fontpick button.on {
+  background: var(--deep);
+  color: var(--white);
+  border-color: var(--deep);
+}
+.topbar {
   position: sticky;
   top: 0;
+  z-index: 30;
+  background: color-mix(in srgb, var(--paper) 94%, transparent);
+  backdrop-filter: blur(14px);
+}
+.nav {
+  position: relative;
   z-index: 20;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  padding: 16px 0;
-  background: color-mix(in srgb, var(--paper) 92%, transparent);
-  backdrop-filter: blur(14px);
+  padding: 12px 0 14px;
+  background: transparent;
 }
 .brand { display: flex; align-items: center; gap: 12px; }
 .mark {
@@ -60,14 +99,14 @@ button, input, textarea, select { font: inherit; }
   color: var(--brass);
   display: grid;
   place-items: center;
-  font-family: "Cormorant Garamond", serif;
+  font-family: var(--font);
   font-size: 1.15rem;
   font-weight: 500;
   letter-spacing: 0.04em;
 }
 .brand strong {
   display: block;
-  font-family: "Cormorant Garamond", serif;
+  font-family: var(--font);
   font-weight: 500;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -100,7 +139,7 @@ button, input, textarea, select { font: inherit; }
 
 .hero { display: grid; grid-template-columns: 1.3fr 0.7fr; gap: 42px; padding: 54px 0 28px; }
 .hero h1 {
-  font-family: "Cormorant Garamond", serif;
+  font-family: var(--font);
   font-weight: 500;
   font-size: clamp(3.1rem, 6vw, 5.1rem);
   line-height: 0.94;
@@ -131,13 +170,13 @@ button, input, textarea, select { font: inherit; }
   justify-content: space-between;
   box-shadow: var(--shadow);
 }
-.portrait p { font-family: "Cormorant Garamond", serif; font-weight: 500; font-size: 2.4rem; line-height: 0.95; margin: 0; }
+.portrait p { font-family: var(--font); font-weight: 500; font-size: 2.4rem; line-height: 0.95; margin: 0; }
 .portrait span { opacity: 0.75; font-size: 0.92rem; }
 
 section { padding: 64px 0; }
 .section-head { max-width: 680px; margin-bottom: 28px; }
 .section-head h2, .split h2, form h2, .legal h1 {
-  font-family: "Cormorant Garamond", serif;
+  font-family: var(--font);
   font-weight: 500;
   font-size: clamp(2.2rem, 4vw, 3.3rem);
   line-height: 0.98;
@@ -182,7 +221,15 @@ footer {
   flex-wrap: wrap;
 }
 .legal { max-width: 760px; padding: 48px 0 72px; }
-.legal h1 { font-weight: 500; font-size: 2.4rem; letter-spacing: -0.04em; margin-bottom: 8px; }
+[data-font="montserrat"] .hero h1,
+[data-font="montserrat"] .portrait p,
+[data-font="montserrat"] .section-head h2,
+[data-font="montserrat"] .split h2,
+[data-font="montserrat"] form h2 {
+  letter-spacing: -0.04em;
+  line-height: 1.08;
+}
+[data-font="montserrat"] .hero h1 { font-size: clamp(2.5rem, 4.8vw, 3.9rem); }
 
 @media (max-width: 860px) {
   .hero, .grid-4, .grid-3, .split, .visit { grid-template-columns: 1fr; }

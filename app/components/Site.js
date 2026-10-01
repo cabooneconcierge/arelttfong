@@ -1,38 +1,64 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { copy, site } from "../data";
+
+const fonts = [
+  { id: "cormorant", label: "Cormorant", sample: '"Cormorant Garamond", serif' },
+  { id: "montserrat", label: "Montserrat", sample: "Montserrat, sans-serif" },
+  { id: "fraunces", label: "Fraunces", sample: "Fraunces, serif" }
+];
 
 export default function Site() {
   const [lang, setLang] = useState("es");
   const [open, setOpen] = useState(false);
+  const [font, setFont] = useState("cormorant");
   const [form, setForm] = useState({ name: "", phone: "", siteId: "healthy", reason: "" });
   const t = copy[lang];
   const office = site.locations.find((item) => item.id === form.siteId) || site.locations[1];
 
+  useEffect(() => {
+    document.documentElement.dataset.font = font;
+  }, [font]);
+
   function onSubmit(event) {
     event.preventDefault();
-    const place = lang === "es" ? office.name : office.name;
+    const place = office.name;
     const message = [
-      lang === "es" ? "Hola, quiero agendar una valoración." : "Hello, I would like to request a consultation.",
-      `${lang === "es" ? "Nombre" : "Name"}: ${form.name}`,
-      `${lang === "es" ? "Teléfono" : "Phone"}: ${form.phone}`,
-      `${lang === "es" ? "Sede" : "Office"}: ${place}`,
-      `${lang === "es" ? "Motivo" : "Reason"}: ${form.reason}`
+      lang === "es" ? "Hola, quiero agendar una valoraci\u00f3n." : "Hello, I would like to request a consultation.",
+      (lang === "es" ? "Nombre" : "Name") + ": " + form.name,
+      (lang === "es" ? "Tel\u00e9fono" : "Phone") + ": " + form.phone,
+      (lang === "es" ? "Sede" : "Office") + ": " + place,
+      (lang === "es" ? "Motivo" : "Reason") + ": " + form.reason
     ].join("\n");
     const number = office.whatsapp || "526241199241";
-    window.open(`https://wa.me/${number}?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
+    window.open("https://wa.me/" + number + "?text=" + encodeURIComponent(message), "_blank", "noopener,noreferrer");
   }
 
   return (
     <>
-      <header className="wrap nav">
+      <div className="topbar">
+        <div className="wrap fontpick">
+          <span>Tipograf\u00eda</span>
+          {fonts.map((item) => (
+            <button
+              key={item.id}
+              type="button"
+              className={font === item.id ? "on" : ""}
+              style={{ "--sample": item.sample }}
+              onClick={() => setFont(item.id)}
+            >
+              {item.label}
+            </button>
+          ))}
+        </div>
+        <header className="wrap nav">
         <a className="brand" href="#inicio">
           <span className="mark">AF</span>
           <span>
             <strong>Arlett Fong</strong>
-            <span>{lang === "es" ? "Cirugía general" : "General surgery"}</span>
+            <span>{lang === "es" ? "Cirug\u00eda general" : "General surgery"}</span>
           </span>
         </a>
         <nav className={open ? "nav-links open" : "nav-links"}>
@@ -41,10 +67,11 @@ export default function Site() {
           ))}
         </nav>
         <div style={{ display: "flex", gap: 8 }}>
-          <button className="menu-btn" onClick={() => setOpen((value) => !value)} aria-label="Menú">Menú</button>
+          <button className="menu-btn" onClick={() => setOpen((value) => !value)} aria-label="Men\u00fa">Men\u00fa</button>
           <button className="lang" onClick={() => setLang(lang === "es" ? "en" : "es")}>{t.langLabel}</button>
         </div>
       </header>
+      </div>
 
       <main id="inicio" className="wrap">
         <section className="hero">
@@ -65,7 +92,7 @@ export default function Site() {
           <aside className="portrait">
             <span>Dra.</span>
             <p>Arlett Fong Hirales</p>
-            <span>{lang === "es" ? "Directora médica de H+ Los Cabos durante cuatro años. Consulta en H+ y Healthy Cabo." : "Medical director of H+ Los Cabos for four years. Offices at H+ and Healthy Cabo."}</span>
+            <span>{lang === "es" ? "Directora m\u00e9dica de H+ Los Cabos durante cuatro a\u00f1os. Consulta en H+ y Healthy Cabo." : "Medical director of H+ Los Cabos for four years. Offices at H+ and Healthy Cabo."}</span>
           </aside>
         </section>
 
@@ -121,8 +148,8 @@ export default function Site() {
                   <span>{place.area}</span>
                   <p>{place.address}</p>
                   <p>{lang === "es" ? place.noteEs : place.noteEn}</p>
-                  <a href={`tel:${place.phone}`}>{place.phoneDisplay}</a>
-                  {" · "}
+                  <a href={"tel:" + place.phone}>{place.phoneDisplay}</a>
+                  {" \u00b7 "}
                   <a href={place.maps} target="_blank" rel="noreferrer">Mapa</a>
                 </article>
               ))}
