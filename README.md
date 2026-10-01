@@ -29,7 +29,7 @@ Quita otros registros A o CNAME que apunten el dominio raíz o `www` a parking d
 
 ## Antes de anunciar el sitio
 
-- Confirmar la cédula de especialidad: directorios públicos citan 09146077 y 09140677.
+- Cédula de especialidad confirmada: 09146077.
 - Confirmar si el WhatsApp de citas es el de Healthy Cabo, (624) 119 9241, o uno propio.
 - Sustituir el bloque del retrato por una fotografía autorizada de la doctora.
 - Revisar el aviso de privacidad con quien lleve el consultorio.

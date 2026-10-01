@@ -101,7 +101,6 @@ export default function Site() {
             <h2>{t.pathTitle}</h2>
             <p>{t.pathBody}</p>
             <p>{t.pathBody2}</p>
-            <p className="warn">{t.pathDisclaimer}</p>
           </div>
           <div className="creds">
             {t.credentials.map(([label, value]) => (

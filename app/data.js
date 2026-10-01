@@ -90,8 +90,6 @@ export const copy = {
       ["Dirección médica", "Hospital H+ Los Cabos, 4 años"],
       ["Consulta", "H+ Los Cabos y Healthy Cabo"]
     ],
-    pathDisclaimer:
-      "Las cédulas se tomaron de directorios públicos. Confirmar el número de especialidad antes de publicar: una fuente cita 09146077 y otra 09140677.",
     visitEyebrow: "Consulta",
     visitTitle: "Dos consultorios en Los Cabos",
     visitBody:
@@ -169,8 +167,6 @@ export const copy = {
       ["Medical director", "H+ Los Cabos, 4 years"],
       ["Offices", "H+ Los Cabos and Healthy Cabo"]
     ],
-    pathDisclaimer:
-      "License numbers come from public directories. Confirm the specialty license before launch: one source lists 09146077 and another 09140677.",
     visitEyebrow: "Visit",
     visitTitle: "Two offices in Los Cabos",
     visitBody:
