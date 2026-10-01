@@ -1,4 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
-  <rect width="32" height="32" rx="6" fill="#14352F"/>
-  <path d="M9 22.5V9.5h3.2l3.8 8.2 3.8-8.2H23v13h-2.4v-8.4l-3.4 7.2h-2.4l-3.4-7.2v8.4H9Z" fill="#F4EFE6"/>
+  <rect width="32" height="32" rx="16" fill="#F9F6F1"/>
+  <circle cx="16" cy="16" r="14.2" stroke="#A9927A"/>
+  <text x="16" y="20.5" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#A9927A">AF</text>
 </svg>
