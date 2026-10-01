@@ -53,7 +53,7 @@ button, input, textarea, select { font: inherit; }
   backdrop-filter: blur(14px);
 }
 .brand { display: flex; align-items: center; gap: 12px; }
-.brand img { height: 76px; width: auto; display: block; }
+.brand img { height: 108px; width: auto; display: block; }
 .nav-links { display: flex; align-items: center; gap: 22px; }
 .nav-links a { font-size: 0.68rem; letter-spacing: 0.11em; text-transform: uppercase; color: var(--muted); }
 .nav-links a:hover { color: var(--ink); }
@@ -114,7 +114,8 @@ button, input, textarea, select { font: inherit; }
 .portrait span { opacity: 0.75; font-size: 0.92rem; }
 
 section { padding: 64px 0; }
-section[id] { scroll-margin-top: 128px; }
+#inicio { scroll-margin-top: 0; }
+section[id] { scroll-margin-top: 156px; }
 .section-head { max-width: 680px; margin-bottom: 28px; }
 .section-head h2, .split h2, .intl h2, form h2, .legal h1 {
   font-family: var(--font);
