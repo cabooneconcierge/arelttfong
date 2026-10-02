@@ -86,7 +86,7 @@ export const copy = {
       "Valoración quirúrgica de emergencia"
     ],
     procEyebrow: "Servicios quirúrgicos",
-    procTitle: "Cuatro motivos de consulta",
+    procTitle: "Motivos de consulta",
     procNote: "El resto de la cirugía general se valora en la misma consulta. La indicación se define después de la revisión; no es una promesa de resultado.",
     moreEyebrow: "También",
     intlEyebrow: "Pacientes internacionales",
@@ -194,7 +194,7 @@ export const copy = {
       "Emergency surgical assessment"
     ],
     procEyebrow: "Surgical services",
-    procTitle: "Four reasons patients come in",
+    procTitle: "Reasons patients come in",
     procNote: "The rest of general surgery is assessed in the same visit. The indication is decided after review. This is not a promise of outcome.",
     moreEyebrow: "Also seen",
     intlEyebrow: "International patients",
