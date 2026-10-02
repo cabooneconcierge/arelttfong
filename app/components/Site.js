@@ -15,31 +15,51 @@ export default function Site() {
 
   function onSubmit(event) {
     event.preventDefault();
-    const place = office.name;
+    const place = lang === "es" ? office.name : office.name;
     const message = [
-      lang === "es" ? "Hola, quiero agendar una valoraci\u00f3n." : "Hello, I would like to request a consultation.",
-      (lang === "es" ? "Nombre" : "Name") + ": " + form.name,
-      (lang === "es" ? "Tel\u00e9fono" : "Phone") + ": " + form.phone,
-      (lang === "es" ? "Sede" : "Office") + ": " + place,
-      (lang === "es" ? "Motivo" : "Reason") + ": " + form.reason
+      lang === "es" ? "Hola, quiero agendar una valoración." : "Hello, I would like to request a consultation.",
+      `${lang === "es" ? "Nombre" : "Name"}: ${form.name}`,
+      `${lang === "es" ? "Teléfono" : "Phone"}: ${form.phone}`,
+      `${lang === "es" ? "Sede" : "Office"}: ${place}`,
+      `${lang === "es" ? "Motivo" : "Reason"}: ${form.reason}`
     ].join("\n");
-    window.open("https://wa.me/" + site.whatsapp + "?text=" + encodeURIComponent(message), "_blank", "noopener,noreferrer");
+    const number = site.whatsapp;
+    window.open(`https://wa.me/${number}?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
   }
 
   return (
     <>
       <div id="inicio" />
       <header className="wrap nav">
-        <a className="brand" href="#inicio" onClick={(event) => { event.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}>
+        <a
+          className="brand"
+          href="#inicio"
+          onClick={(event) => {
+            event.preventDefault();
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }}
+        >
           <img src="/logo-arlett.svg" alt="Arlett Fong, MD. General Surgeon. Los Cabos." />
         </a>
         <nav className={open ? "nav-links open" : "nav-links"}>
           {t.nav.map(([label, href]) => (
-            <a key={href} href={href} onClick={(event) => { setOpen(false); if (href === "#inicio") { event.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); } }}>{label}</a>
+            <a
+              key={href}
+              href={href}
+              onClick={(event) => {
+                setOpen(false);
+                if (href === "#inicio") {
+                  event.preventDefault();
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }
+              }}
+            >
+              {label}
+            </a>
           ))}
         </nav>
         <div style={{ display: "flex", gap: 8 }}>
-          <button className="menu-btn" onClick={() => setOpen((value) => !value)} aria-label="Men\u00fa">Men\u00fa</button>
+          <button className="menu-btn" onClick={() => setOpen((value) => !value)} aria-label="Menú">Menú</button>
           <button className="lang" onClick={() => setLang(lang === "es" ? "en" : "es")}>{t.langLabel}</button>
         </div>
       </header>
@@ -61,9 +81,7 @@ export default function Site() {
             </div>
           </div>
           <aside className="portrait">
-            <span>Dra.</span>
-            <p>Arlett Fong Hirales</p>
-            <span>{lang === "es" ? "Cirug\u00eda general y laparosc\u00f3pica en Los Cabos. Consulta en H+ y en Healthy Cabo." : "General and laparoscopic surgery in Los Cabos. Offices at H+ and Healthy Cabo."}</span>
+            <img src="/dra-arlett.jpg" alt="Dra. Arlett Fong Hirales, cirujana general y laparoscópica en Los Cabos" />
           </aside>
         </section>
 
@@ -143,7 +161,9 @@ export default function Site() {
             <p>{t.erNote}</p>
           </div>
           <article className="card er-card">
-            <ul>{t.erItems.map((item) => <li key={item}>{item}</li>)}</ul>
+            <ul>
+              {t.erItems.map((item) => <li key={item}>{item}</li>)}
+            </ul>
             <p className="notice">{t.urgent}</p>
           </article>
         </section>
@@ -160,13 +180,15 @@ export default function Site() {
                   <span>{place.area}</span>
                   <p>{place.address}</p>
                   <p>{lang === "es" ? place.noteEs : place.noteEn}</p>
-                  <a href={"tel:" + place.phone}>{place.phoneDisplay}</a>
-                  {" \u00b7 "}
+                  <a href={`tel:${place.phone}`}>{place.phoneDisplay}</a>
+                  {" · "}
                   <a href={place.maps} target="_blank" rel="noreferrer">Mapa</a>
                 </article>
               ))}
             </div>
-            <ul>{t.visitPoints.map((point) => <li key={point}>{point}</li>)}</ul>
+            <ul>
+              {t.visitPoints.map((point) => <li key={point}>{point}</li>)}
+            </ul>
           </div>
           <form onSubmit={onSubmit}>
             <h2>{t.formTitle}</h2>
@@ -181,7 +203,9 @@ export default function Site() {
             </label>
             <label>{t.reason}<textarea required rows={4} value={form.reason} onChange={(e) => setForm({ ...form, reason: e.target.value })} /></label>
             <button className="btn" type="submit">{t.send}</button>
-            <p className="note"><a href={"mailto:" + site.email}>{site.email}</a></p>
+            <p className="note">
+              <a href={`mailto:${site.email}`}>{site.email}</a>
+            </p>
             <p className="notice">{t.urgent}</p>
           </form>
         </section>
