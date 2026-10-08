@@ -89,7 +89,7 @@ button, input, textarea, select { font: inherit; }
 .brand { display: flex; align-items: center; gap: 12px; }
 .brand img { height: 108px; width: auto; display: block; }
 .brand span { display: block; color: var(--muted); font-size: 0.82rem; }
-.nav-links { display: flex; align-items: center; gap: 22px; }
+.nav-links { display: flex; align-items: center; gap: 16px; }
 .nav-links a { font-size: 0.68rem; letter-spacing: 0.11em; text-transform: uppercase; color: var(--muted); }
 .nav-links a:hover { color: var(--ink); }
 .lang, .menu-btn, .btn {
