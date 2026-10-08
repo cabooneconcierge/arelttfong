@@ -62,6 +62,7 @@ export const copy = {
       ["Inicio", "#inicio"],
       ["Dra. Fong", "#doctora"],
       ["Servicios", "#servicios"],
+      ["Aseguradoras", "#aseguradoras"],
       ["Internacional", "#internacional"],
       ["Urgencias", "#urgencia"],
       ["Contacto", "#consulta"]
@@ -180,6 +181,7 @@ export const copy = {
       ["Home", "#inicio"],
       ["About Dr. Fong", "#doctora"],
       ["Surgical Services", "#servicios"],
+      ["Insurance", "#aseguradoras"],
       ["International Patients", "#internacional"],
       ["Emergency Care", "#urgencia"],
       ["Contact", "#consulta"]
