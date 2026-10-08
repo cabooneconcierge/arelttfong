@@ -181,6 +181,30 @@ section[id] { scroll-margin-top: 156px; }
   margin-bottom: 12px;
 }
 .intl { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 18px; align-items: start; }
+.insurers { display: grid; grid-template-columns: 1.4fr 0.6fr; gap: 16px; }
+.insurers article {
+  background: rgba(251, 248, 243, 0.78);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 22px;
+}
+.insurers b {
+  display: block;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.insurers ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.insurers li {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 8px 14px;
+}
+#aseguradoras .note { margin-top: 16px; }
+.ask { margin-top: 16px; background: var(--notice); border-radius: 18px; padding: 16px 18px; }
+.ask a { font-weight: 600; }
 .steps { display: grid; gap: 8px; }
 .steps div { background: var(--white); border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; }
 .steps b { display: block; margin-bottom: 2px; }
@@ -225,7 +249,7 @@ footer {
 .legal { max-width: 760px; padding: 48px 0 72px; }
 
 @media (max-width: 860px) {
-  .hero, .grid-4, .grid-3, .grid-2, .featured, .intl, .split, .visit { grid-template-columns: 1fr; }
+  .hero, .grid-4, .grid-3, .grid-2, .featured, .intl, .insurers, .split, .visit { grid-template-columns: 1fr; }
   .er-card ul { columns: 1; }
   .menu-btn { display: inline-flex; }
   .nav-links {
