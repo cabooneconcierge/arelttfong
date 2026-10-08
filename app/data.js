@@ -1,7 +1,7 @@
 export const site = {
   doctor: "Dra. Arlett Fong Hirales",
   shortName: "Arlett Fong",
-  domain: "arelttfong.com",
+  domain: "arlettfong.com",
   city: "Los Cabos, Baja California Sur",
   cedulaProfesional: "7498351",
   cedulaEspecialidad: "09146077",
