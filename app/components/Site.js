@@ -139,6 +139,26 @@ export default function Site() {
           </div>
         </section>
 
+        <section id="aseguradoras">
+          <div className="section-head">
+            <div className="eyebrow">{t.insEyebrow}</div>
+            <h2>{t.insTitle}</h2>
+            <p>{t.insLead}</p>
+          </div>
+          <div className="insurers">
+            <article>
+              <b>{t.insNational}</b>
+              <ul>{site.insurers.national.map((name) => <li key={name}>{name}</li>)}</ul>
+            </article>
+            <article>
+              <b>{t.insInternational}</b>
+              <ul>{site.insurers.international.map((name) => <li key={name}>{name}</li>)}</ul>
+            </article>
+          </div>
+          <p className="note">{t.insNote}</p>
+          <p className="ask">{t.insAsk} <a href="#consulta">{t.insContact}</a></p>
+        </section>
+
         <section id="internacional" className="intl">
           <div>
             <div className="eyebrow">{t.intlEyebrow}</div>
