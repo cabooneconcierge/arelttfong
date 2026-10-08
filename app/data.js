@@ -33,7 +33,26 @@ export const site = {
       noteEn: "Office alongside Dr. Daniel Velázquez.",
       maps: "https://maps.google.com/?q=Healthy+Cabo+Plaza+Paseo+Los+Arcos+Cabo+San+Lucas"
     }
-  ]
+  ],
+  insurers: {
+    national: [
+      "AXA",
+      "GNP",
+      "MAPFRE",
+      "Inbursa",
+      "MetLife",
+      "BX+",
+      "Seguros Monterrey",
+      "Allianz México",
+      "Quálitas GMMM",
+      "Seguros Atlas",
+      "Sofía",
+      "Bupa",
+      "VUMI",
+      "Best Doctors"
+    ],
+    international: ["UnitedHealthcare Global", "GeoBlue"]
+  }
 };
 
 export const copy = {
@@ -89,6 +108,16 @@ export const copy = {
     procTitle: "Motivos de consulta",
     procNote: "El resto de la cirugía general se valora en la misma consulta. La indicación se define después de la revisión; no es una promesa de resultado.",
     moreEyebrow: "También",
+    insEyebrow: "Aseguradoras",
+    insTitle: "Coordinación con su aseguradora",
+    insLead:
+      "La Dra. Fong trabaja con estas aseguradoras. Una asistente especializada en seguros apoya al paciente con el trámite y busca, en cada caso, la opción de presupuesto hospitalario más conveniente.",
+    insNational: "Nacionales",
+    insInternational: "Internacionales",
+    insNote:
+      "Estar en esta lista no garantiza la cobertura. Cada póliza tiene sus propias condiciones, deducible y coaseguro. Antes de programar una cirugía se revisa la autorización con la aseguradora.",
+    insAsk: "Si su aseguradora no aparece aquí, puede escribir. Se revisa si el caso se puede tramitar.",
+    insContact: "Contacto",
     intlEyebrow: "Pacientes internacionales",
     intlTitle: "International Patient Surgical Care",
     intlLead: "Atención quirúrgica para pacientes internacionales y viajeros en Los Cabos, desde la valoración hasta el seguimiento.",
@@ -197,6 +226,16 @@ export const copy = {
     procTitle: "Reasons patients come in",
     procNote: "The rest of general surgery is assessed in the same visit. The indication is decided after review. This is not a promise of outcome.",
     moreEyebrow: "Also seen",
+    insEyebrow: "Insurance",
+    insTitle: "Insurance coordination",
+    insLead:
+      "Dra. Fong works with these insurers. A specialist insurance assistant helps with the paperwork and looks, in each case, for the most suitable hospital quote.",
+    insNational: "National",
+    insInternational: "International",
+    insNote:
+      "Being on this list does not guarantee coverage. Each policy has its own conditions, deductible, and coinsurance. Authorization is reviewed with the insurer before surgery is scheduled.",
+    insAsk: "If your insurer is not listed, you can write. The case is reviewed to see whether it can be arranged.",
+    insContact: "Contact",
     intlEyebrow: "International patients",
     intlTitle: "International Patient Surgical Care",
     intlLead: "Surgical care for international patients and travelers in Los Cabos, from the first assessment through follow-up.",
