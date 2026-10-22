@@ -7,6 +7,8 @@ export const site = {
   cedulaEspecialidad: "09146077",
   email: "arlettfong@gmail.com",
   whatsapp: "526121007125",
+  partnerName: "One Stop Cabo Health",
+  partnerUrl: "https://www.onestopcabohealth.com",
   locations: [
     {
       id: "hplus",
@@ -147,6 +149,7 @@ export const copy = {
       "La Dra. Arlett Fong Hirales es médico cirujano con especialidad en cirugía general, laparoscopía y mini laparoscopía avanzada. Antes fue directora médica y jefa de quirófano del Hospital H+ Los Cabos durante cuatro años.",
     pathBody2:
       "Hoy atiende consulta en el Hospital H+ Los Cabos y en Healthy Cabo, en consultorio de la mano del Dr. Daniel Velázquez. Opera en hospitales de Los Cabos; su práctica no es exclusiva de H+.",
+    partner: "Partner estratégico de",
     credentials: [
       ["Cédula profesional", site.cedulaProfesional],
       ["Cédula de especialidad", site.cedulaEspecialidad],
@@ -266,6 +269,7 @@ export const copy = {
       "Dra. Arlett Fong Hirales is a physician and general surgeon, with a practice in advanced laparoscopy and mini-laparoscopy. She previously served for four years as medical director and head of the operating suite at H+ Los Cabos.",
     pathBody2:
       "She sees patients at H+ Los Cabos and at Healthy Cabo, in an office alongside Dr. Daniel Velázquez. She operates at hospitals in Los Cabos and is not exclusive to H+.",
+    partner: "Strategic partner of",
     credentials: [
       ["Medical license", site.cedulaProfesional],
       ["Specialty license", site.cedulaEspecialidad],
