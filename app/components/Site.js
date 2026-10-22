@@ -91,6 +91,10 @@ export default function Site() {
             <h2>{t.pathTitle}</h2>
             <p>{t.pathBody}</p>
             <p>{t.pathBody2}</p>
+            <p className="partner">
+              {t.partner}{" "}
+              <a href={site.partnerUrl} target="_blank" rel="noopener noreferrer">{site.partnerName}</a>.
+            </p>
           </div>
           <div className="creds">
             {t.credentials.map(([label, value]) => (
@@ -234,6 +238,10 @@ export default function Site() {
       <footer className="wrap">
         <div>
           <strong>{site.doctor}</strong>
+          <div>
+            {t.partner}{" "}
+            <a href={site.partnerUrl} target="_blank" rel="noopener noreferrer">{site.partnerName}</a>
+          </div>
           <div>{t.rights}</div>
           <div>{t.footerNote}</div>
         </div>
